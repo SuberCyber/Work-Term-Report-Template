@@ -1,74 +1,134 @@
 \ProvidesPackage{formatting}
 
-%% Required Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Required Packages
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage[hmargin=2.5cm, vmargin=2.5cm]{geometry}
 \usepackage{setspace}
-\usepackage{tocstyle}
+\usepackage{tocloft}
 \usepackage{datetime} 
 
-%% Formatting for general page requirements
-\doublespacing
-\setlength{\parindent}{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%Dates
+%Dates
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newdateformat{noDay}{\monthname, \THEYEAR}
-\newdateformat{Memorandum}{\monthname \, \THEDAY, \THEYEAR}
+\newdateformat{Letter}{\monthname \, \THEDAY, \THEYEAR}
 
-%Table of Contents
-\renewcommand*\thesection{\arabic{section}.0 \ }
-\renewcommand*\thesubsection{\arabic{section}.\arabic{subsection}}
-\renewcommand{\contentsname}{Table of Contents}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Title page formatting
 
-%% Variables that Occur in multiple sections
-\newcommand{\term}{Current Term } % term that was most recently completed
-\newcommand{\WTT}{Title of report}
-\newcommand{\name}{First Lastname}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Title page formatting
-\newcommand{\FirstPage}[3]{
+\newcommand{\FirstPage}{
     \begin{titlepage}
         \begin{center}
-            \includegraphics[width=17cm]{waterloo-math.jpg}
-            \vskip 50pt
+            \textbf{UNIVERSITY OF WATERLOO} \\
+            Faculty of Mathematics
+            \vskip 100pt
             \huge{\textbf{\WTT}} 
             \vskip 20pt
-            \large #1\\ #2
+            \large \compName \\ \compStreet, \compCity
             \vskip 170pt
-            \LARGE \textbf{\name}  #3\\
-            Computer Science \term\\
+            \LARGE \textbf{\name}  \studentNumber \\
+            Computer Science \term \\
             \noDay\today
         \end{center}
     \end{titlepage}
 }
 
-%% Memorandum Heading Formatting
-\newcommand{\MemorandumHead}[1]{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Letter Head Formatting
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\LetterHead}{
+    \singlespacing
     \pagestyle{empty}
-    \LARGE MEMORANDUM
-    \vskip 20pt
-    \normalsize 
-    \begin{tabular}{l l}
-        To:     & #1\\
-        From:   & \name \\
-        Date:   & \Memorandum\today \\
-        Re:     & Work Term Report: \WTT
-    \end{tabular}
-    \vskip 10pt
-    \noindent\rule{\textwidth}{1pt}
-    \vskip 10pt
+ 
+    \yourStreet\\
+    \yourCity, \yourProvince\\
+    \yourPostalCode\\
+    
+    \Letter\today\\
+    
+    \supervisorsName\\
+    \supervisorsRole\\
+    \compName\\
+    \compStreet\\
+    \compCity, \compProvince\\
+    \compPostalCode\\
+    
+    Dear \supervisorsName, 
 }
 
-%%Formatting for PageNumbering
-\newcommand{\header}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Page Formatting
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\pageFormatting}{
+    \doublespacing
     \pagenumbering{roman}
     \setcounter{page}{2}
     \pagestyle{fancy}
-    \rhead{ \thepage}
-    \lhead{}
-    \cfoot{}
+    \fancyhf{}
+    \fancyfoot[C]{\thepage}
+    \fancypagestyle{plain}{
+        \fancyhf{}
+        \fancyfoot[C]{\thepage}
+    }
+    % removes default line
     \renewcommand{\headrulewidth}{0pt}
 }
+
+% No indentation
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Table of Contents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Command that gets called
+\newcommand{\toc}{
+    \newpage
+    \pageFormatting 
+    \tableofcontents
+    \listoffigures
+    \newpage
+}
+
+% Numbering
+\renewcommand*\thesection{\arabic{section}.0}
+\renewcommand*\thesubsection{\arabic{section}.\arabic{subsection} \ }
+\renewcommand*\thesubsubsection{\arabic{section}.\arabic{subsection}.\arabic{subsubsection} }
+
+
+% Commands about toc, lot, lof headings
+\renewcommand{\cfttoctitlefont}{\hspace*{\fill}\Large\bfseries}
+\renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
+\renewcommand{\cftlottitlefont}{\hspace*{\fill}\Large\bfseries}
+\renewcommand{\cftafterlottitle}{\hspace*{\fill}}
+\renewcommand{\cftloftitlefont}{\hspace*{\fill}\Large\bfseries}
+\renewcommand{\cftafterloftitle}{\hspace*{\fill}}
+
+% Indentation
+\renewcommand*\l@subsubsection{\@dottedtocline{1}{6.2em}{3.2em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{3.1em}{3.2em}}
+\renewcommand*\l@section{\@dottedtocline{1}{0em}{3.2em}}
+
+% Ensure proper labeling
+\renewcommand{\contentsname}{Table of Contents}

@@ -2,13 +2,44 @@
 
 \usepackage{formatting}
 
+% Use https://uwaterloo.ca/math/current-undergraduates/co-op-information/work-report-guidelines/appendix-3-work-report-checklist to ensure you are meeting all the requirements
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Fill in:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\term}{Current Term } % term that was most recently completed
+\newcommand{\WTT}{Title of report}
+\newcommand{\name}{First Lastname}
+\newcommand{\studentNumber}{student number}
+
+\newcommand{\yourStreet}{your street}
+\newcommand{\yourCity}{your city}
+\newcommand{\yourProvince}{ your province}
+\newcommand{\yourPostalCode}{your postal code}
+
+\newcommand{\supervisorsName}{Supervisor's name}
+\newcommand{\supervisorsRole}{Supervisor's role}
+
+\newcommand{\compName}{Company name}
+\newcommand{\compStreet}{company street}
+\newcommand{\compCity}{comp city}
+\newcommand{\compProvince}{comp province}
+\newcommand{\compPostalCode}{comp postal code}
+
 \begin{document}
 
-\FirstPage{name of company}{address of company} {student number}
+\FirstPage
 
 \newpage
 
-\MemorandumHead{Supervisor's Name}
+\LetterHead
+
+% Sample is at https://uwaterloo.ca/math/sites/ca.math/files/uploads/files/letterofsubmittal_2.pdf"
+
 
 As we agreed, I have prepared the enclosed report, “\WTT,” for
 my \term work report and for the TEAM. This
@@ -27,14 +58,13 @@ considered for an award.
 Thank you for your assistance in preparing this report.
 
 INSERT SIGNATURE HERE
-\newpage
 
-\header 
-\tableofcontents
-\listoffigures
 
-\newpage
+\toc 
+
+\addcontentsline{toc}{section}{Executive Summary}
 \section*{Executive Summary}
+
 One of the most important components of the report is the Executive Summary. It should be written after the rest of the report has been written.
 
 The Executive Summary should be complete in itself and may be consulted by readers to determine whether they need to read the whole report. It appears on a separate page.
@@ -45,8 +75,13 @@ the purpose of the report
 the key points of the analysis
 the highlights of the conclusions
 the highlights of the recommendations
+
 \newpage
+
 \pagenumbering{arabic}
+\fancyhf{}
+\fancyfoot[R]{\thepage}
+
 \section{Introduction}
 The Introduction establishes the purpose of the report and conveys the contents of the Analysis. You should provide the reader with the following information:
 
@@ -58,6 +93,7 @@ the purpose of the work report and the methodology used
 
 \section{Analysis} 
 \subsection{A subsection}
+\subsubsection{A sub sub section}
 A description of the steps in a process is not sufficient. The following list provides examples of acceptable analytical content:
 
 a discussion of cause and effect
@@ -83,10 +119,12 @@ This section is optional because recommendations are not appropriate for all rep
 Recommendations are essentially speculative but should be brief and should follow logically from the conclusions. Include comments derived from experience that may improve future activities of the company.
 
 \newpage
+\addcontentsline{toc}{section}{References}
 \section*{References}
 Whenever possible, support statements with concrete, specific examples. If you refer to a published work, cite the reference in the text even if the reference is not a direct quotation. Include the author and year of publication.
 
 \newpage
+\addcontentsline{toc}{section}{Acknowledgements}
 \section*{Acknowledgments}
 
 \end{document}
