@@ -13,6 +13,8 @@
 \usepackage{setspace}
 \usepackage{tocloft}
 \usepackage{datetime} 
+\usepackage{titlesec}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -35,11 +37,11 @@
             \textbf{UNIVERSITY OF WATERLOO} \\
             Faculty of Mathematics
             \vskip 100pt
-            \huge{\textbf{\WTT}} 
+            \textbf{\WTT} 
             \vskip 20pt
-            \large \compName \\ \compStreet, \compCity
+            \compName \\ \compStreet, \compCity
             \vskip 170pt
-            \LARGE \textbf{\name}  \studentNumber \\
+         \textbf{\name}  \studentNumber \\
             Computer Science \term \\
             \noDay\today
         \end{center}
@@ -112,9 +114,16 @@
 }
 
 % Numbering
-\renewcommand*\thesection{\arabic{section}.0}
-\renewcommand*\thesubsection{\arabic{section}.\arabic{subsection} \ }
-\renewcommand*\thesubsubsection{\arabic{section}.\arabic{subsection}.\arabic{subsubsection} }
+\renewcommand*\thesection{\normalsize \arabic{section}.0}
+\renewcommand*\thesubsection{\normalsize \arabic{section}.\arabic{subsection} \ }
+\renewcommand*\thesubsubsection{\normalsize \arabic{section}.\arabic{subsection}.\arabic{subsubsection} }
+
+\titleformat*{\section}{\newpage \normalsize\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+                                   
+                                  
+
 
 
 % Commands about toc, lot, lof headings
@@ -131,4 +140,5 @@
 \renewcommand*\l@section{\@dottedtocline{1}{0em}{3.2em}}
 
 % Ensure proper labeling
-\renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\contentsname}{\normalsize Table of Contents}
+\renewcommand{\listfigurename}{\normalsize List of Figures}
