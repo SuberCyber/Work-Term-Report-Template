@@ -18,7 +18,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Dates
+% Dates
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -31,17 +31,33 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% "University of Waterloo" must be bold
+% "University of Waterloo" must be in all capital letters
+% Faculty must be written out correctly in full (not a plan name)
+% Report title must be bold (italics is acceptable)
+% Employer’s name and location must be included 
+% Full name must be included
+% ID number must be included 
+% All text must be centred
+% All text must be single-spaced
+% Images, colours or borders must not be included
+
+
 \newcommand{\FirstPage}{
     \begin{titlepage}
         \begin{center}
+           
             \textbf{UNIVERSITY OF WATERLOO} \\
             Faculty of Mathematics
             \vskip 100pt
+            
             \textbf{\WTT} 
             \vskip 20pt
+        
             \compName \\ \compStreet, \compCity
             \vskip 170pt
-         \textbf{\name}  \studentNumber \\
+
+            \textbf{\name}  \studentNumber \\
             Computer Science \term \\
             \noDay\today
         \end{center}
@@ -53,6 +69,12 @@
 % Letter Head Formatting
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Must contain sender’s address with full province (Ontario)
+% Date must be in written out in full
+% Date must be consistent with date on the Title Page
+% Must include a Statement of Endorsement in the final paragraph
+% Must be left justified
 
 \newcommand{\LetterHead}{
     \singlespacing
@@ -79,6 +101,29 @@
 % Page Formatting
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Spacing and Paragraphs
+% Report body must be double-spaced
+% Indentation and spacing between paragraphs must be consistent
+
+% Headings and Section Numbers (H)
+% Headings must be emphasized using bold, not italicized or underlined
+% Headings must be consistent with Table of Contents
+
+% Format (F) 
+% Fonts and Margins (M)
+% Entire report must be written in 12pt font
+% Ensure margins are consistent on all sides in all sections
+
+% Page Numbers (PN)
+% No page number appears on the Title Page, it is considered page “i”
+% No page number appears on the Letter of Submittal, it is not considered a part of the report itself
+% Table of Contents must have Roman numeral 'ii' centred at the bottom
+% If included, List of Table and Figures must have Roman numeral 'iii' centred at the bottom
+% Summary must have Roman numeral 'iv' (or 'iii' if no List of Tables and Figures included) centred at the bottom
+% The page with the introduction must be numbered '1' and the others must follow in order
+% Arabic numerals (1, 2, 3, etc.) must be right-aligned at the bottom
+% Page numbers in report must match those in the Table of Contents
+
 
 \newcommand{\pageFormatting}{
     \doublespacing
@@ -98,31 +143,62 @@
 % No indentation
 \setlength{\parindent}{0pt}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Spacing between paragraphs 
+\setlength{\parskip}{1em}
 
-%Table of Contents
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Command that gets called
-\newcommand{\toc}{
+\newcommand{\formattingForRestOfReport}{
     \newpage
-    \pageFormatting 
-    \tableofcontents
-    \listoffigures
-    \newpage
+    \pagenumbering{arabic}
+    \fancyhf{}
+    \fancyfoot[R]{\thepage}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Section Formatting
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Numbering
 \renewcommand*\thesection{\normalsize \arabic{section}.0}
 \renewcommand*\thesubsection{\normalsize \arabic{section}.\arabic{subsection} \ }
 \renewcommand*\thesubsubsection{\normalsize \arabic{section}.\arabic{subsection}.\arabic{subsubsection} }
 
-\titleformat*{\section}{\newpage \normalsize\bfseries}
+\titleformat*{\section}{\normalsize\bfseries}
 \titleformat*{\subsection}{\normalsize\bfseries}
 \titleformat*{\subsubsection}{\normalsize\bfseries}
-                                   
-                                  
+
+%https://tex.stackexchange.com/questions/53338/reducing-spacing-after-headings
+\titlespacing\section{0pt}{0pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{0pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{0pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Table of Contents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% "Table of Contents" must be bold
+% "Table of Contents" must be centred
+% Must include decimal numbers before appropriate headings
+% Major words in headings/subheadings must be capitalized
+% Subheadings must be indented
+% Page numbers must be right aligned
+% Must contain tab leaders
+% Must not include bold, italics, extras
+
+
+% Command that gets called
+\newcommand{\toc}{
+    \newpage
+    \pageFormatting 
+    \tableofcontents
+    % \listoffigures
+    \newpage
+}
+
 
 
 
