@@ -14,7 +14,23 @@
 \usepackage{tocloft}
 \usepackage{datetime} 
 \usepackage{titlesec}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\usepackage{hyperref}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% URL Formatting
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\urlstyle{same}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -164,6 +180,15 @@
 \renewcommand*\thesubsection{\normalsize \arabic{section}.\arabic{subsection} \ }
 \renewcommand*\thesubsubsection{\normalsize \arabic{section}.\arabic{subsection}.\arabic{subsubsection} }
 
+
+% Sections without Numbers
+\newcommand{\sectionNoNumber}[1]{
+    \newpage
+    \addcontentsline{toc}{section}{#1}
+    \section*{#1}
+}
+
+% Ensure that all headings are normalsize after getting penalized for this
 \titleformat*{\section}{\normalsize\bfseries}
 \titleformat*{\subsection}{\normalsize\bfseries}
 \titleformat*{\subsubsection}{\normalsize\bfseries}
@@ -195,8 +220,7 @@
     \newpage
     \pageFormatting 
     \tableofcontents
-    % \listoffigures
-    \newpage
+    \listoffigures
 }
 
 
