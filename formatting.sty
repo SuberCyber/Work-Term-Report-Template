@@ -57,24 +57,27 @@
 % All text must be centred
 % All text must be single-spaced
 % Images, colours or borders must not be included
-
+% https://uwaterloo.ca/math/sites/ca.math/files/uploads/files/title-page.pdf
 
 \newcommand{\FirstPage}{
     \begin{titlepage}
         \begin{center}
-           
-            \textbf{UNIVERSITY OF WATERLOO} \\
+           \vskip 50pt
+            \textbf{\scshape UNIVERSITY OF WATERLOO} \\
             Faculty of Mathematics
-            \vskip 100pt
+            \vskip 130pt
             
             \textbf{\WTT} 
-            \vskip 20pt
+            \vskip 130pt
         
-            \compName \\ \compStreet, \compCity
-            \vskip 170pt
+            \compName \\ 
+            \compCity, \compProvince
+            \vskip 130pt
 
-            \textbf{\name}  \studentNumber \\
-            Computer Science \term \\
+            Prepared by \\
+            \name  \\
+            \term Computer Science \\
+            ID \studentNumber \\
             \noDay\today
         \end{center}
     \end{titlepage}
@@ -176,7 +179,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Numbering
-\renewcommand*\thesection{\normalsize \arabic{section}.0}
+\renewcommand*\thesection{ \normalsize \arabic{section}.0}
 \renewcommand*\thesubsection{\normalsize \arabic{section}.\arabic{subsection} \ }
 \renewcommand*\thesubsubsection{\normalsize \arabic{section}.\arabic{subsection}.\arabic{subsubsection} }
 
@@ -190,9 +193,9 @@
 }
 
 % Ensure that all headings are normalsize after getting penalized for this
-\titleformat*{\section}{\normalsize\bfseries}
+\titleformat*{\section}{\centering \normalsize\bfseries}
 \titleformat*{\subsection}{\normalsize\bfseries}
-\titleformat*{\subsubsection}{\normalsize\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries\itshape}
 
 %https://tex.stackexchange.com/questions/53338/reducing-spacing-after-headings
 \titlespacing\section{0pt}{0pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
